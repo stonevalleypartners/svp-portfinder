@@ -1,0 +1,27 @@
+{
+  "name": "svp-portfinder",
+  "version": "1.0.0",
+  "description": "Test library for finding a TCP port for servers",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stonevalleypartners/svp-portfinder.git"
+  },
+  "keywords": [
+    "tests",
+    "networking",
+    "port"
+  ],
+  "author": "Kent Karlsson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stonevalleypartners/svp-portfinder/issues"
+  },
+  "homepage": "https://github.com/stonevalleypartners/svp-portfinder#readme",
+  "dependencies": {
+    "arguejs": "^0.2.3"
+  }
+}
