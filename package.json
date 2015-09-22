@@ -23,5 +23,10 @@
   "homepage": "https://github.com/stonevalleypartners/svp-portfinder#readme",
   "dependencies": {
     "arguejs": "^0.2.3"
+  },
+  "devDependencies": {
+    "bluebird": "^2.10.1",
+    "chai": "^3.3.0",
+    "chai-as-promised": "^5.1.0"
   }
 }
