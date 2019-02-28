@@ -8,13 +8,14 @@ var portFinder = require('../lib');
 
 describe('portFinder', () => {
   var firstPort, secondPort;
+  let firstServer, secondServer;
 
   it('get a port', () => {
     return portFinder()
       .then((port) => {
         firstPort = port;
-        var server = Promise.promisifyAll(net.createServer());
-        return server.listenAsync(port);
+        firstServer = Promise.promisifyAll(net.createServer());
+        return firstServer.listenAsync(port);
       })
       .should.eventually.be.fulfilled;
   });
@@ -24,8 +25,8 @@ describe('portFinder', () => {
       .then((port) => {
         secondPort = port;
         secondPort.should.not.equal(firstPort);
-        var server = Promise.promisifyAll(net.createServer());
-        return server.listenAsync(port);
+        secondServer = Promise.promisifyAll(net.createServer());
+        return secondServer.listenAsync(port);
       })
       .should.eventually.be.fulfilled;
   });
@@ -33,6 +34,11 @@ describe('portFinder', () => {
   it('cannot obtain port for bad address', () => {
     return portFinder('8.8.8.8')
       .should.eventually.be.rejected;
+  });
+
+  after(() => {
+    firstServer.close();
+    secondServer.close();
   });
 });
 
